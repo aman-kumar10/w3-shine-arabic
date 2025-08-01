@@ -1,0 +1,179 @@
+.hidden {
+    display: none;
+}
+
+span#updateaddarecordText {
+    color: #fff;
+}
+
+span#updateaddarecordLoading {
+    color: #fff;
+}
+
+span#addedarecordText {
+    color: #fff;
+}
+
+span#addedarecordLoading {
+    color: #fff;
+}
+
+span#deleteaddarecordText {
+    color: #fff;
+}
+
+span#deleteaddarecordLoading {
+    color: #fff;
+}
+
+.alert-dismissable .close,
+.alert-dismissible .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+}
+
+a.close {
+    text-decoration: none !important;
+    font-size: 18px !important;
+    line-height: 1.2;
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+span#addedtxtrecordText {
+    color: #fff;
+}
+
+span#addedtxtrecordLoading {
+    color: #fff;
+}
+
+span#updateaddtxtrecordText {
+    color: #fff;
+}
+
+span#updateaddtxtrecordLoading {
+    color: #fff;
+}
+
+span#deleteaddtxtrecordText {
+    color: #fff;
+}
+
+span#deleteaddtxtrecordLoading {
+    color: #fff;
+}
+
+span#updateaddmxrecordText {
+    color: #fff;
+}
+
+span#updateaddmxrecordLoading {
+    color: #fff;
+}
+
+span#deleteaddmxrecordText {
+    color: #fff;
+}
+
+span#deleteaddmxrecordLoading {
+    color: #fff;
+}
+
+span#addedmxrecordText {
+    color: #fff;
+}
+
+span#addedmxrecordLoading {
+    color: #fff;
+}
+
+.alert-danger {
+
+    background-color: #f8d7da !important;
+
+}
+
+span#updateaddspfrecordText {
+    color: #fff;
+}
+
+span#updateaddspfrecordLoading {
+    color: #fff;
+}
+
+span#deleteaddspfrecordText {
+    color: #fff;
+}
+
+span#deleteaddspfrecordLoading {
+    color: #fff;
+}
+
+span#addedcnamerecordText {
+    color: #fff;
+}
+span#addedcnamerecordLoading {
+    color: #fff;
+}
+
+span#updateaddcnamerecordText {
+    color: #fff;
+}
+span#updateaddcnamerecordLoading {
+    color: #fff;
+}
+
+span#deleteaddcnamerecordText {
+    color: #fff;
+}
+
+span#deleteaddcnamerecordLoading {
+    color: #fff;
+}
+
+span#addedspfrecordText {
+    color: #fff;
+}
+
+span#addedspfrecordLoading {
+    color: #fff;
+}
+
+div#ctl00_ContentPlaceHolder1_pnlDNS {
+    padding: 50px 0;
+}
+
+span#addedsrvrecordText {
+    color: #fff;
+}
+span#addedsrvrecordLoading {
+    color: #fff;
+}
+
+span#updateaddsrvrecordText {
+    color: #fff;
+}
+
+span#updateaddsrvrecordLoading {
+    color: #fff;
+}
+
+span#deleteaddsrvrecordText {
+    color: #fff;
+}
+
+span#deleteaddsrvrecordLoading {
+    color: #fff;
+}
