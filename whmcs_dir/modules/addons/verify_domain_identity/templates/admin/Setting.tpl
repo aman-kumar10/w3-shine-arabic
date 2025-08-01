@@ -12,7 +12,7 @@
                     <td width="15%" class="fieldlabel">Verify email template</td>
                     <td class="fieldarea">
                         <select name='verify_email_template' class='form-control select-inline'>
-                            {foreach from=$tplVar['getVerifyTemplate'] item=item key=key name=name}
+                            {foreach from=$tplVar['getDomainTemplate'] item=item key=key name=name}
                                 <option value='{$item->id}' {if  $tplVar['getSelectedEmailTemplate']['verify_email_template'] == $item->id }selected{/if}>{$item->name}</option>
                             {/foreach}
                         </select>
@@ -23,7 +23,7 @@
                     <td width="15%" class="fieldlabel">Reject email template</td>
                     <td class="fieldarea">
                         <select name='reject_email_template'  class='form-control select-inline'>
-                            {foreach from=$tplVar['getRejectTemplate'] item=item key=key name=name}
+                            {foreach from=$tplVar['getDomainTemplate'] item=item key=key name=name}
                                 <option value='{$item->id}' {if  $tplVar['getSelectedEmailTemplate']['reject_email_template'] == $item->id }selected{/if}>{$item->name}</option>
                             {/foreach}
                         </select>

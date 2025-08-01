@@ -39,7 +39,7 @@ add_hook('UserLogin', 999, function($vars) {
 
         $email_send = Capsule::table('mod_login_otp_setting')->where('name','EmailOTP')->value('value');
     
-        if(isset($_SESSION['uid']) && $email_send=='on' && $_COOKIE['sendotp']=='rdEmail'){
+        if(isset($_SESSION['uid']) && $email_send=='on' && !isset($_SESSION['adminid']) && $_COOKIE['sendotp']=='rdEmail'){
     
             $check_2fa = Capsule::table('tblusers')->where('id',$_SESSION['uid'])->where('second_factor','totp')->first();
     
@@ -59,7 +59,7 @@ add_hook('UserLogin', 999, function($vars) {
                 $templatename = Capsule::table('tblemailtemplates')->where('id',$templateid)->value('name');
                 $extime = Capsule::table('mod_login_otp_setting')->where('name','otpToken')->value('value');
         
-                $results = sendOTPEmail($_SESSION['uid'], $otp, $templatename, $extime);
+                sendOTPEmail($_SESSION['uid'], $otp, $templatename, $extime);
         
                 if ($results['result']=='success') {
                     $_SESSION['vu'] = $_SESSION['uid'];
@@ -78,6 +78,15 @@ add_hook('UserLogin', 999, function($vars) {
 });
 
 
+// Generate verification code (OTP)
+function generateVerificationCodeSix() {
+    try {
+        return str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
+    } catch (Exception $e) {
+        logActivity("Unable to verification code (OTP)" . $e->getMessage());
+    }
+}
+
 // Send email
 function sendOTPEmail($id, $otp, $templatename, $expTime){
     try {
@@ -90,8 +99,7 @@ function sendOTPEmail($id, $otp, $templatename, $expTime){
             ])),
         ];
 
-        $result = localAPI('SendEmail', $postData);
-        return $result;
+        localAPI('SendEmail', $postData);
 
     } catch (Exception $e) {
         logActivity("Unable to sent verification code(OTP) email" . $e->getMessage());

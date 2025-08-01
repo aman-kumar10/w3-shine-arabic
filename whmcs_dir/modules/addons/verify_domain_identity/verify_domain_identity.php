@@ -14,14 +14,14 @@ function verify_domain_identity_config()
         
         'name' => 'Verify Domain Identity',
         'description' => '',
-        'author' => '<a href="http://whmcsglobalservices.com/" target="_blank">WHMCS GLOBAL SERVICES</a>',
+        'author' => '',
         'language' => 'english',
         'version' => '1.0',
         'fields' => [
             'deleteDB' => [
                 'FriendlyName' => 'Delete Database',
                 'Type' => 'yesno',
-                // 'Description'=> 'Verify Domain Identity',
+                // 'Description'=> 'Send OTP to WHMCS Client',
             ], 
         ]
     ];
@@ -167,52 +167,6 @@ function verify_domain_identity_activate()
             );
         }
 
-        if (!Capsule::table('tblemailtemplates')->where('type', 'user')->where('name', 'Document Verification Email')->count()) {
-            Capsule::table('tblemailtemplates')->insert([
-                'type' => 'user',
-                'name' => 'Document Verification Email',
-                'subject' => 'Your Domain Registration Documents Have Been Verified',
-                'message' => '
-                    <p>Dear {$user_first_name} {$user_last_name},</p>
-
-                    <p>Thank you for submitting the required documents for your domain registration.</p>
-
-                    <p>We’re pleased to inform you that your documents have been successfully verified.</p>
-
-                    <p>Your domain registration process will now proceed as expected.</p>
-
-                    <p>If you have any further questions, feel free to reach out.</p>
-
-                    <p>Best regards,<br>The Support Team</p>
-                ',
-                'custom' => 1
-            ]);
-        }
-
-        if (!Capsule::table('tblemailtemplates')->where('type', 'user')->where('name', 'Document Rejection Email')->count()) {
-            Capsule::table('tblemailtemplates')->insert([
-                'type' => 'user',
-                'name' => 'Document Rejection Email',
-                'subject' => 'Your Domain Registration Documents Have Been Rejected',
-                'message' => '
-                    <p>Dear {$user_first_name} {$user_last_name},</p>
-
-                    <p>Thank you for submitting your documents for domain registration.</p>
-
-                    <p>Unfortunately, we were unable to verify your documents due to one or more of the following reason:</p>
-
-                    <p>{$reject_reason}</p>
-
-                    <p>We kindly request you to re-upload the correct documents by logging into your client area as soon as possible.</p>
-
-                    <p>If you need assistance or have any questions, feel free to contact our support team.</p>
-
-                    <p>Best regards,<br>The Support Team</p>
-                ',
-                'custom' => 1
-            ]);
-        }
-
         return [
             'status' => 'success',
             'description' => '',
@@ -229,41 +183,21 @@ function verify_domain_identity_activate()
 function verify_domain_identity_deactivate()
 {
 
-        if(Capsule::table('tbladdonmodules')->where('setting','deleteDB')->where('module','verify_domain_identity')->where('value','on')->first()){
-            try {
-                Capsule::schema()->dropIfExists('mod_verify_domain_register');
-                Capsule::schema()->dropIfExists('mod_verify_domain_identity_setting');
-                Capsule::schema()->dropIfExists('mod_w3_domain_contact_details');
-                Capsule::schema()->dropIfExists('mod_w3_transfer_domain_details');
-                Capsule::schema()->dropIfExists('mod_w3_change_contatcs_invoices');
-                Capsule::schema()->dropIfExists('mod_w3_invoice_customer_po');
-                Capsule::schema()->dropIfExists('mod_w3_registrar_agreement');
-                Capsule::schema()->dropIfExists('mod_w3_renew_domain_services');
-                Capsule::schema()->dropIfExists('mod_w3_domain_mangement_services');
-
-                $template1 = Capsule::table('tblemailtemplates')->where('type', 'user')->where('name', 'Document Verification Email')->where('custom', 1)->first();
-                $template2 = Capsule::table('tblemailtemplates')->where('type', 'user')->where('name', 'Document Rejection Email')->where('custom', 1)->first();
-
-                if ($template1) {
-                    Capsule::table('tblemailtemplates')->where('id', $template1->id)->delete();
-                }
-
-                if ($template2) {
-                    Capsule::table('tblemailtemplates')->where('id', $template2->id)->delete();
-                }
-
-                
-            } catch (\Exception $e) {
-                return [
-                    'status' => "error",
-                    'description' => 'Unable to create mod_verify_domain_register: ' . $e->getMessage(),
-                ];
-            }
-        }
-        return [
-            'status' => 'success',
-            'description' => '',
-        ];
+        // if(Capsule::table('tbladdonmodules')->where('setting','deleteDB')->where('module','verify_domain_identity')->where('value','on')->first()){
+        //     try {
+        //         Capsule::schema()->dropIfExists('mod_verify_domain_identity_setting');
+        //         Capsule::schema()->dropIfExists('mod_verify_domain_register');
+        //     } catch (\Exception $e) {
+        //         return [
+        //             'status' => "error",
+        //             'description' => 'Unable to create mod_verify_domain_register: ' . $e->getMessage(),
+        //         ];
+        //     }
+        // }
+        // return [
+        //     'status' => 'success',
+        //     'description' => '',
+        // ];
 }
 
 function verify_domain_identity_output($vars)
@@ -276,17 +210,17 @@ function verify_domain_identity_output($vars)
 
 function verify_domain_identity_clientarea($vars)
 { 
-    return array(
-        'pagetitle' => 'client',
-        'breadcrumb' => array('index.php?m=verify_domain_identity' => 'verify_domain_identity'),
-        'templatefile' => 'client/email_otp_pages',
-        'requirelogin' => true,
-        'forcessl' => false,
-        'vars' => array(
-            'page_detail' => $vars,
-            // "error"=>$status,
-            // 'extime' => $helper->expireTime(),
-        ),
+            // return array(
+            //     'pagetitle' => 'client',
+            //     'breadcrumb' => array('index.php?m=verify_domain_identity' => 'verify_domain_identity'),
+            //     'templatefile' => 'client/email_otp_pages',
+            //     'requirelogin' => true,
+            //     'forcessl' => false,
+            //     'vars' => array(
+            //         'page_detail' => $vars,
+            //         "error"=>$status,
+            //         'extime' => $helper->expireTime(),
+            //     ),
 
-    );
+            // );
 }

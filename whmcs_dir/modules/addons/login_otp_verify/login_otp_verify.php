@@ -97,7 +97,6 @@ function login_otp_verify_deactivate()
         if(Capsule::table('tbladdonmodules')->where('setting','deleteDB')->where('module','login_otp_verify')->where('value','on')->first()){
             try {
                 Capsule::schema()->dropIfExists('mod_login_otp_setting');
-                Capsule::schema()->dropIfExists('mod_client_verification_otp');
             } catch (\Exception $e) {
                 return [
                     'status' => "error",

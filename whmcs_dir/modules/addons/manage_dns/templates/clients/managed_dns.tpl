@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="clearfix mb-4"></div>
                 <br>
-                <h2>{$LANG_VAR["edit_dns_records"]}</h2>
+                <h2>{$LANG_VAR["dns_records"]}</h2>
                 <span id="ctl00_ContentPlaceHolder1_lblDNSMessage" style="color:Red;"></span>
                 <div class="clearfix"></div>
                 <input type="hidden" name="ctl00$ContentPlaceHolder1$HiddenField4" id="ctl00_ContentPlaceHolder1_HiddenField4">

@@ -60,7 +60,6 @@ class Controller {
                 
                 $results = localAPI($command, $postData);
 
-
                 if ($results['result']=='error') {
                     $status = array("status"=>"Error","title"=>'Registrar Error Message',"message"=>$results['error'] );
                 }
@@ -71,7 +70,7 @@ class Controller {
                     $command = 'SendEmail';
                     $postData = array(
                         'messagename' => $template_name,
-                        'id' => $userid,
+                        'id' => $whmcs->get_req_var('domainid'),
                     );
                     $results = localAPI($command, $postData);
                     if ($results['result']=='error') {
@@ -95,7 +94,7 @@ class Controller {
                         $command = 'SendEmail';
                         $postData = array(
                             'messagename' => $template_name,
-                            'id' => $userid,
+                            'id' => $whmcs->get_req_var('domainid'),
                             'customvars' => base64_encode(serialize(array("reject_reason"=> $reason))),
                         );
                         $results = localAPI($command, $postData);
@@ -192,8 +191,7 @@ class Controller {
             }
 
             $this->tplVar['status'] = $status;
-            $this->tplVar['getVerifyTemplate'] = $helper->getVerifyTemplate();
-            $this->tplVar['getRejectTemplate'] = $helper->getRejectTemplate();
+            $this->tplVar['getDomainTemplate'] = $helper->getDomainTemplate();
             $this->tplVar['getSelectedEmailTemplate'] = $helper->getSelectedEmailTemplate();
             $this->tplFileName = $this->tplVar['tab'] = __FUNCTION__;
             $this->output();

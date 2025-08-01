@@ -33,7 +33,6 @@ add_hook('ClientAreaFooterOutput', 1, function ($vars) {
 
             if (!empty($whmcs->get_req_var('dnsaction')) && $whmcs->get_req_var('dnsaction') == 'subscribe') {
 
-
                 $currencyid = getCurrency($userid);
 
                 $domaindata = $helper->getDomainData($whmcs->get_req_var('domainid'), $userid);
@@ -118,9 +117,6 @@ add_hook('ClientAreaFooterOutput', 1, function ($vars) {
                             <a menuitemname="SUBCRIBE DNS MANGEMENT" href="' . htmlspecialchars($path, ENT_QUOTES, 'UTF-8') . '"
                             class="list-group-item list-group-item-action" id="Secondary_Sidebar-My_Domains_Actions-Manage_DNS">
                                 <div class="sidebar-menu-item-wrapper">
-                                    <div class="sidebar-menu-item-icon-wrapper">
-                                        <i class="fa fa-server"></i>
-                                    </div>
                                     <div class="sidebar-menu-item-label">
                                         ADD DNS Record
                                     </div>
@@ -133,7 +129,7 @@ add_hook('ClientAreaFooterOutput', 1, function ($vars) {
                 $html = "
                 <script type=\"text/javascript\">
                     $(document).ready(function(){
-                        $('[menuitemname=\"Domain Details Actions\"] .list-group.list-group-flush.d-md-flex').append(" . $escapedAppendHtml . ");
+                        $('[menuitemname=\"Domain Details Management\"] .list-group.list-group-flush.d-md-flex').append(" . $escapedAppendHtml . ");
                     });
                 </script>";
 
@@ -146,10 +142,7 @@ add_hook('ClientAreaFooterOutput', 1, function ($vars) {
                         id="Secondary_Sidebar-Manage_DNS_Service" 
                         data-dns-action="subscribe"
                         data-dns-domainid="' . $domainId . '" data-dns-sysurl="' . $systemURL . '">
-                    <div class="sidebar-menu-item-wrapper">
-                        <div class="sidebar-menu-item-icon-wrapper">
-                            <i class="fa fa-server"></i>
-                        </div>
+                    <div class="sidebar-menu-item-wrapper">              
                         <div class="sidebar-menu-item-label">
                             SUBCRIBE DNS MANGEMENT
                         </div>
@@ -164,7 +157,7 @@ add_hook('ClientAreaFooterOutput', 1, function ($vars) {
                 $html = "
                     <script type=\"text/javascript\">
                         $(document).ready(function(){
-                            $('[menuitemname=\"Domain Details Actions\"] .list-group.list-group-flush.d-md-flex').append(" . $escapedAppendHtml . ");
+                            $('[menuitemname=\"Domain Details Management\"] .list-group.list-group-flush.d-md-flex').append(" . $escapedAppendHtml . ");
                         });
 
                         $(document).on('click', '#Secondary_Sidebar-Manage_DNS_Service', function(event) {
@@ -220,7 +213,7 @@ add_hook('ClientAreaFooterOutput', 1, function ($vars) {
                 $html = "
                 <script type=\"text/javascript\">
                     $(document).ready(function(){
-                        $('[menuitemname=\"Domain Details Actions\"] .list-group.list-group-flush.d-md-flex').append(" . $escapedAppendHtml . ");
+                        $('[menuitemname=\"Domain Details Management\"] .list-group.list-group-flush.d-md-flex').append(" . $escapedAppendHtml . ");
                     });
                 </script>";
 
@@ -240,7 +233,7 @@ add_hook('AfterShoppingCartCheckout', 1, function ($vars) {
     $userid = $_SESSION['uid'];
 
     if (!$userid) {
-        $userid =  Capsule::table('tbldomains')->where('orderid', $vars['OrderID'])->value('userid');
+        $userid = Capsule::table('tbldomains')->where('orderid', $vars['OrderID'])->value('userid');
     }
 
 
@@ -255,9 +248,8 @@ add_hook('AfterShoppingCartCheckout', 1, function ($vars) {
                 $domiandata = $helper->getDomainData($value, $userid);
 
                 $invoice = Capsule::table('tblinvoices')->where('id', $vars['InvoiceID'])->first();
-
-
-                $result = $helper->insertDomainData($domiandata->userid, $value, $vars['InvoiceID'], $invoice->status, $domiandata->dnsmanagement);
+                
+                $result = $helper->insertDomainData($userid, $value, $vars['InvoiceID'], $invoice->status, $domiandata->dnsmanagement);
 
                 if ($result == 1 && $invoice->status == 'Paid') {
 
@@ -283,4 +275,10 @@ add_hook('InvoicePaid', 1, function ($vars) {
         $helper->CreateDomaindnsService($domaindata->domianid, $_SESSION['uid']);
 
     }
+});
+
+add_hook('AfterRegistrarRequestDelete', 1, function ($vars) {
+
+    $helper = new Helper();
+    $helper->deleteDomaindnsService($vars['params']['domainid'], $vars['params']['userid']);
 });

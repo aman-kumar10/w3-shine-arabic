@@ -31,12 +31,8 @@
             return $responseData;
         }
 
-        public function getVerifyTemplate(){
-            return Capsule::table('tblemailtemplates')->where('type','user')->where('name', 'Document Verification Email')->where('custom', 1)->select('id', 'name')->get();
-        }
-
-        public function getRejectTemplate(){
-            return Capsule::table('tblemailtemplates')->where('type','user')->where('name', 'Document Rejection Email')->where('custom', 1)->select('id', 'name')->get();
+        public function getDomainTemplate(){
+            return Capsule::table('tblemailtemplates')->where('type','domain')->select('id', 'name')->get();
         }
 
         public function updateEmailTemplate(){
@@ -126,14 +122,10 @@
         }
 
         public function getTemplateName($type){
-        //    return  Capsule::table('mod_verify_domain_identity_setting')
-        //             ->join('tblemailtemplates','tblemailtemplates.id', 'mod_verify_domain_identity_setting.value')
-        //             ->where('mod_verify_domain_identity_setting.setting',$type)
-        //             ->value('tblemailtemplates.name');
-
-        $tempId = Capsule::table("mod_verify_domain_identity_setting")->where("setting", $type)->value("value");
-        return Capsule::table("tblemailtemplates")->where("id", $tempId)->value("name");
-
+           return  Capsule::table('mod_verify_domain_identity_setting')
+                    ->join('tblemailtemplates','tblemailtemplates.id', 'mod_verify_domain_identity_setting.value')
+                    ->where('mod_verify_domain_identity_setting.setting',$type)
+                    ->value('tblemailtemplates.name');
         }
 
         

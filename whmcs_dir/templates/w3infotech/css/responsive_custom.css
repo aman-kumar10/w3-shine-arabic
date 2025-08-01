@@ -1,0 +1,490 @@
+@media (max-width:1365px) {
+
+    .banner .nav-link,
+    .transfer-domain a {
+        font-weight: 700;
+        line-height: 22px;
+        font-size: 15px;
+        padding: 10px 13px;
+    }
+
+    .page-title .title-text h1 {
+        font-size: 32px;
+    }
+
+    .page-title .title-text {
+        margin-left: 0 !important;
+    }
+
+    body.custom-profile-details {
+        padding: 30px 0 !important;
+    }
+
+    .banner .searchFrame1 {
+        width: 86%;
+    }
+
+    .banner .searchFrame {
+        width: 86%;
+    }
+}
+
+@media (max-width:1199px) {
+
+    .banner .nav-link,
+    .transfer-domain a {
+        font-size: 14px;
+        padding: 10px 9px;
+    }
+
+    .banner .searchFrame .searchFrameSubmit {
+        font-size: 14px;
+        padding: 1.5em 1em;
+    }
+
+    .support-bar .phone a,
+    .support-bar .email a {
+        font-size: 20px;
+    }
+
+    .support-bar .support-more a {
+        font-size: 13px;
+    }
+
+    .table tbody {
+        display: table-header-group !important;
+    }
+
+    .table tr {
+        display: table-row !important;
+    }
+
+    .table>thead {
+        vertical-align: bottom;
+        display: table-header-group !important;
+    }
+
+    .table td,
+    .table th {
+        display: table-cell;
+    }
+
+    table td,
+    th {
+        padding: 10px 10px;
+        font-size: 12px;
+    }
+
+    .domaindetails-sec table td {
+        text-align: left;
+    }
+
+    .transfer-grid td:before {
+        position: unset;
+        top: 10px;
+        left: 6px;
+        width: 100%;
+    }
+
+    .transfer-grid td {
+        padding-left: 10px;
+    }
+}
+
+@media (max-width:991px) {
+    .banner .searchFrame1 {
+        width: 100%;
+    }
+
+    .bannerf-left {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .buy-row input[type=checkbox]+label:before {
+        letter-spacing: 4px;
+    }
+
+    .buy-row .cell span label {
+        font-size: 12px;
+    }
+
+    .buy-row .cell .text-wr {
+        padding-left: 7px;
+    }
+
+    .domain_select {
+        padding-left: 10px;
+    }
+
+    .buy-row .cell:nth-child(4) {
+        width: 27%;
+    }
+
+    .buy-row .cell:nth-child(1) {
+        padding-left: 10px;
+    }
+
+    .core-area .pic_2 {
+        z-index: unset;
+    }
+
+    .banner .nav-link,
+    .transfer-domain a {
+        width: 100%;
+    }
+
+    .bannerf-left #myTab {
+        display: block;
+        width: 100%;
+    }
+
+    .banner .searchFrame .searchBox {
+        width: 60%;
+    }
+
+    .banner .searchFrame .searchFrameSub {
+        width: 40%;
+    }
+
+    .transfer-domain {
+        width: 100%;
+    }
+
+    .banner-right .slick-dots {
+        bottom: -15px;
+    }
+
+    footer .contact-f a {
+        font-size: 17px;
+    }
+
+    footer .email-f {
+        font-size: 17px;
+    }
+
+    footer h3 {
+        font-size: 18px;
+    }
+
+    footer .copyright {
+        font-size: 12px;
+    }
+
+    .support-bar .support-more a {
+        font-size: 12px;
+        padding: 10px 3px;
+    }
+
+    .support-bar .phone a,
+    .support-bar .email a {
+        font-size: 17px;
+    }
+
+    .ul-algn ul li a {
+        font-size: 14px;
+    }
+
+    .w3-service {
+        padding: 10px;
+    }
+
+    .domain-result table.table {
+        width: 600px;
+    }
+
+    .domain-result {
+        overflow: auto;
+    }
+
+    .login .link-st a {
+        font-size: 12px;
+    }
+
+    .login_right a.btn.btn-white-color {
+        padding: .5rem .5rem;
+    }
+
+    .banner .searchFrame {
+        width: 100% !important;
+    }
+
+    .bannerf-left ul li {
+        margin-bottom: 10px !important;
+    }
+
+    .verification-banner .btn {
+        margin: 0;
+        padding: 3px 10px;
+    }
+
+    .customsupportticket {
+        padding: 40px 0
+    }
+
+    .client-area-domains button {
+        font-size: 14px !important;
+        padding: 10px !important;
+    }
+    /* .container.domaindetails-sec a.btn.btn-default {
+        margin-bottom: 20px !important;
+    } */
+}
+
+
+@media (min-width: 768px) {
+
+    .verification-banner .fal,
+    .verification-banner .far,
+    .verification-banner .fas {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 768px) and (max-width:991px) {
+    .core-area .core-cont .col-sm-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+
+    .login.col-12.col-sm-12.col-md-8.col-lg-8 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+  
+    .top_bar_login ul li ul li a {
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .buy-row .cell:nth-child(1) {
+        padding-left: 30px;
+    }
+
+    .inner-banner h1 {
+        font-size: 22px !important;
+    }
+
+    section.page-title {
+        position: relative;
+        z-index: 1;
+    }
+
+    section.page-title::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        background: #000000ab;
+        z-index: -1;
+    }
+
+    .account_manage-info button {
+        width: 100%;
+    }
+
+    .container.domaindetails-sec .container {
+        padding: 0;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .custom-domain-details{
+        padding-bottom: 20px;
+    }
+    .client-area-domains {
+        flex-direction: column;
+    }
+
+    .banner .searchFrame1 {
+        width: 100%;
+    }
+
+
+    .w3-offer .ext-spec ul li {
+        width: 46%;
+        font-size: 12px;
+    }
+
+    .w3-offer .ext-spec ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .w3-offer .ext-spec {
+        width: 100%;
+    }
+
+    .banner .searchFrame .searchFrameSubmit {
+        font-size: 14px;
+        padding: 1.5em 10px;
+    }
+
+    .w3-offer img {
+        max-width: 220px;
+        margin: auto;
+        display: block;
+    }
+
+    .support-bar .support-more a {
+        font-size: 12px;
+        padding: 10px 23px;
+    }
+
+    /* .container {
+        padding: 0px 20px;
+    } */
+
+    .faq h3 {
+        font-size: 15px !important;
+    }
+
+    form#frmCheckout .row {
+        --bs-gutter-x: unset;
+    }
+
+    .login .form-box.px-5.py-5 {
+        padding: 20px !important;
+    }
+
+    div#containerPassword .generate-password {
+        margin-bottom: 10px;
+    }
+
+    input#txtIDNDomainName {
+        padding-left: 6px;
+        font-size: 13px;
+    }
+
+    .banner .searchFrame1 .searchBox {
+        width: 42%;
+    }
+
+    .banner .searchFrame1 .checker {
+        width: 23%;
+    }
+
+    .contactus-wrapl {
+        margin-left: 10px;
+    }
+
+    .dataTables_wrapper table.table-list {
+        margin: 10px 0 !important;
+        width: 800PX !important;
+    }
+
+    .dataTables_wrapper .listtable {
+        overflow: auto;
+    }
+
+    .dropdown-menu.show {
+        width: 100%;
+        left: unset;
+        right: 0;
+        text-align: center;
+    }
+
+    .setBulkAction {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .top_bar_contact_list li {
+        margin-bottom: .5em;
+        float: none;
+        text-align: center;
+    }
+}
+
+@media (max-width: 575px) {
+    button#btnResendVerificationEmail {
+        width: 100%;
+    }
+}
+
+@media (max-width: 525px) {
+    .page-title .title-text h1 {
+        font-size: 22px;
+        /* color: #000; */
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+
+    .btn-changename {
+        width: 100%;
+    }
+
+    .card.bulkdomain {
+        max-width: 430px;
+        margin: 0 auto;
+        margin-left: 12px;
+    }
+
+    .verification-banner .btn {
+        margin-bottom: 10px;
+    }
+
+    .verify-otp form {
+        max-width: fit-content !important;
+        margin: 0 auto !important;
+        width: 90% !important;
+    }
+
+    .col-md-6.text-left.user_service_details {
+        margin-top: 20px;
+    }
+
+    .domain-selection-options .option {
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 425px) {
+    .container.domaindetails-sec .alert.alert-error {
+        max-width: 377px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .card.bulkdomain {
+        margin-left: 0px;
+    }
+
+    .container.domaindetails-sec .container {
+        padding: 0;
+    }
+
+    .top_bar_login ul li#Secondary_Navbar-Account {
+        float: unset;
+        margin-right: 10px;
+    }
+
+    .top_bar_login ul li {
+        padding-left: unset;
+    }
+
+    div#tableTicketsList_length>label {
+        margin-top: 6px;
+    }
+    div#tableTicketsList_length {
+        text-align: unset;
+    }
+    .customAttachment #btnTicketAttachmentsAdd {
+        padding: 7px 10px;
+        font-size: 12px;
+        border-radius: unset;
+    }
+    .top_bar_login ul li a{
+        margin-right: 5px;
+    }
+}

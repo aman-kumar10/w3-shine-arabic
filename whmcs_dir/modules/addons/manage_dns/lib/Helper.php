@@ -91,6 +91,7 @@ class Helper
         }
         return false; // Return false if no match is found
     }
+    
     function CreateDomaindnsService($dominid ,$userid)
     {
         
@@ -133,6 +134,45 @@ class Helper
             } else {
                 logModuleCall('manage dns addons', 'DomaindnsService', $url, '', $result);
             }
+        }
+
+    }
+
+    function deleteDomaindnsService($dominid ,$userid)
+    {
+        
+        $zonetype = $this->getManageDnsData('zonetype');
+
+
+        $authid = $this->getManageDnsData('authid');
+
+
+        $authpassword = urlencode($this->getManageDnsData('password'));
+
+
+
+        if ($dominid != "")
+            $chekstus = $this->getCustromTableData($dominid , $userid);
+
+        if ($chekstus->dnsmanagement == '1') {
+            $domainname = $this->getDomainData($dominid , $userid);
+
+            $url = "https://api.cloudns.net/dns/delete.json?auth-id=$authid&auth-password=$authpassword&domain-name=".$domainname->domain;
+
+            $header = [];
+
+            $data = null;
+
+            $result = $this->curlCall($header, $data, $url, "POST");
+
+            if ($result['status'] == "Success") {
+
+                logModuleCall('manage dns addons', 'Terminate Domain DNS Service', $url, $result);
+
+            } else {
+                logModuleCall('manage dns addons', 'Terminate Domain DNS Service', $url, $result);
+            }
+
         }
 
     }
